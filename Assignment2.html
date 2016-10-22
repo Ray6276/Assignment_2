@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Assignment2</title>
+</head>
+    <style>
+        #button1{
+            display:inline-block;
+            width: 10vw;
+            height: 20vh;
+            position: relative;
+            left:3vw;
+            vertical-align: top;
+
+        }
+        #button2{
+            display:inline-block;
+            width: 20vw;
+            height: 20vh;
+            background-color: aqua;
+            float:right;
+            vertical-align: top;
+            
+        }
+        #betbutton{
+            display: inline-block;
+            position: relative;
+            left: 4vw;
+            top:15px;
+            vertical-align: top;
+        
+        }
+        .inputdispaly{
+            display: block;
+            margin-left: 20px;
+            margin-bottom:10px;
+            width:30vw;
+        }
+        #display{
+            margin-left: 16vw;
+            margin-top:10vh;
+            
+        }
+        
+        .display{
+            margin-top:2vh;
+            background-color: darkorange;
+            width:60vw;
+            height:auto;
+        }
+        .left_p{
+            display: inline-block;
+            width:20vw;
+            height:40vh;
+            vertical-align: top;
+           
+         
+        }
+        .right_s{
+            display: inline-block;
+            margin-left: 2vw;
+            width:38vw;
+            height:auto;
+            vertical-align:top;
+            
+                
+        }
+        .right_d{
+            margin-left: 1vw;
+            margin-right:1vw;
+            width:auto;
+            
+        }
+        #message{
+            position: fixed;
+            left: 47vw;
+            bottom: -10vh;
+            width:6vw;
+            height:5vh;
+            border: 0.5px;
+            border-style: solid;
+            background-color: aqua;
+            transition: bottom, 0.5s;
+            text-align: center;
+        
+        }
+        
+    </style>
+    <body>
+        <button id = 'button1'>Add</button>
+        <div id = 'betbutton'>
+            <input type = 'text' id = 'heading' placeholder="Enter the heading" class = 'inputdispaly'>
+            <input type = 'text' id = 'picture' placeholder='Enter the picture address' class = 'inputdispaly'>
+            <input type = 'text' id = 'des' placeholder="Enter the description" class = 'inputdispaly'>
+        </div>
+        <button id = 'button2'>Clear</button>
+        <div id = 'display'></div>
+        <div id = 'message'></div>
+        
+        <script>
+            var addBu = document.getElementById('button1');
+            var clearBu = document.getElementById('button2');
+            var display = document.getElementById('display');
+            var messB = document.getElementById('message');
+            var messarea = document.getElementById('betbutton')
+            
+            
+            addBu.onclick = function(){
+                var newDiv = document.createElement('div');
+                var newDiv1 = document.createElement('div');
+                var newDiv2 = document.createElement('div');
+                var newDiv3 = document.createElement('p');
+                var newHead = document.createElement('h3');
+                var imp = document.getElementById('picture').value;
+                var heading = document.getElementById('heading');
+                var disc = document.getElementById('des')
+                
+                
+                display.appendChild(newDiv);
+                newDiv.className = 'display';
+                
+                newDiv.appendChild(newDiv1);
+              
+                newDiv1.className = 'left_p';
+                newDiv1.style.backgroundImage = 'url(' + imp + ')';
+                newDiv1.style.backgroundSize = 'contain';
+                newDiv1.style.backgroundRepeat = 'no-repeat';
+               
+                newDiv.appendChild(newDiv2);
+                newDiv2.className ='right_s'
+                
+                
+                newDiv2.appendChild(newHead)
+                newHead.innerHTML= heading.value;
+                
+                newDiv2.appendChild(newDiv3);
+                newDiv3.className = 'right_d'
+                newDiv3.innerHTML = disc.value; 
+                
+                messB.style.bottom = '0vh';
+                messB.innerHTML = 'CREATED';
+                
+                
+            }
+            clearBu.onclick = function(){
+                display.innerHTML = '';
+                
+                messB.style.bottom = '0vh';
+                messB.innerHTML = 'CLEARED';
+            }
+            
+            messarea.onmousemove = function(){
+                messB.style.bottom = '-10vh';
+                
+            }
+       
+        
+        
+        
+        </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </body>
+
+
+
+
+
+
+
+
+
+</html>
